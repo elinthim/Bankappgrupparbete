@@ -6,7 +6,7 @@ namespace Bankappgrupparbete
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
