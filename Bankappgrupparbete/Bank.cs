@@ -1,37 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Bankappgrupparbete
 {
     class Bank
     {
-        string username;
-        string password;
-
-        public string UserName { get{ return username; } set { username = value; } }
-
-        List<Customer> Clist = new List<Customer>();
-
+        List<string> Clist = new List<string>();
         public void Start()
         {
-            Console.WriteLine("Hallå");
+            Console.WriteLine("Välj ett av altenativen");
+            Console.WriteLine("1. Logga in som Admin");
+            Console.WriteLine("2. ");
+            Console.WriteLine("3. ");
             int input = int.Parse(Console.ReadLine());
 
             switch (input)
             {
                 case 1:
-
+                    Admin.adminInlogg();
                     break;
                 default:
                     break;
             }
         }
-        public void userinlogg()
-        {
-            Console.WriteLine("Skriv in användarnamn");
-            string input = Console.ReadLine();
-            Console.WriteLine(Clist.Find(i => i.));
-        }
+
+        
+
+
 
     }
 
