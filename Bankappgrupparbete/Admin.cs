@@ -8,17 +8,14 @@ namespace Bankappgrupparbete
 {
     class Admin : Bank
     {
-
-
-
-
+        public Admin(string username, string password) : base(username, password)
+        {
+        }
 
         public static void adminInlogg()
         {
             bool gameOver = false;
             int num = 0;
-
-
             while (gameOver == false)
             {
                 Console.Write("Användarnamn : ");
@@ -31,9 +28,14 @@ namespace Bankappgrupparbete
                     Console.Clear();
                     Console.WriteLine("Välkommen till inloggningen för Admin !!");
                     Console.WriteLine("1. Lägga till användare");
+                    Console.WriteLine("2. Kolla något annat");
+                    int adminInput = int.Parse(Console.ReadLine());
+                    if (adminInput == 1)
+                    {
+                        addUser();
+                    }
                     gameOver = true;
                     Console.ReadKey();
-
                 }
                 else
                 {
@@ -54,9 +56,16 @@ namespace Bankappgrupparbete
                         Console.WriteLine("Va fan, jag sa ju till dig!!. Nu loggas du ut!");
                         break;
                     }
-
                 }
             }
+        }
+        public static void addUser()
+        {
+            Console.WriteLine("Ange info om den nya användaren");
+            Console.WriteLine("-------------------------------");
+            Console.Write("Användarnamn : ");
+
+
 
         }
     }

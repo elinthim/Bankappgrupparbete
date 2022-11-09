@@ -8,16 +8,9 @@ namespace Bankappgrupparbete
 {
     class Customer : Bank
     {
-        private string Username;
-        private string Password;
-
-
-
-        public string username { get { return Username; } set { Username = value; } }
-        public string password { get { return Password; } set { Password = value; } }
-
-
-
+        public Customer(string username, string password) : base(username, password)
+        {
+        }
     }
 
 }

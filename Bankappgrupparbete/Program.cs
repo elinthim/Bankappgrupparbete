@@ -10,8 +10,7 @@ namespace Bankappgrupparbete
     {
         static void Main(string[] args)
         {
-            
-            Bank bank = new Bank();
+            Bank bank = new Bank("hasse","hhh");
             bank.Start();
         }
     }

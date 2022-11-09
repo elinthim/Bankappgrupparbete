@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,20 @@ namespace Bankappgrupparbete
 {
     class Bank
     {
-        List<string> Clist = new List<string>();
+        string Username;
+        string Password;
+
+        public string username { get { return Username; } set { Username = value; } }
+        public string password { get { return Password; } set { Password = value; } }
+
+        List<Customer> Clist = new List<Customer>();
+
+        public Bank(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
+
         public void Start()
         {
             Console.WriteLine("Välj ett av altenativen");
@@ -27,7 +41,10 @@ namespace Bankappgrupparbete
             }
         }
 
+
         
+
+
 
 
 
