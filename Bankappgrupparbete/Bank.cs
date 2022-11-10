@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace Bankappgrupparbete
 {
-    class Bank
+    public class Bank
     {
         string Username;
         string Password;
@@ -14,7 +14,7 @@ namespace Bankappgrupparbete
         public string username { get { return Username; } set { Username = value; } }
         public string password { get { return Password; } set { Password = value; } }
 
-        List<Bank> userList = new List<Bank>();
+        List<string> userList = new List<string>();
         List<string> passList = new List<string>();
 
         public Bank(string username, string password)
@@ -36,8 +36,12 @@ namespace Bankappgrupparbete
                 case 1:
                     adminInlogged();
                     break;
+                case 2:
+                    customerinlog();
+                    break;
                 default:
                     break;
+
             }
         }
         public void adminInlogged()
@@ -87,9 +91,12 @@ namespace Bankappgrupparbete
                 num++;
 
 
-                Bank userfound = userList.Find(i => i.Username.Equals(customerinlog));
+                var userfound = userList.Find(i => i.Equals(customerinlog));
 
-                if (customerinlog == "admin" && adminPass == "admin") { admin(); }
+                if (userfound == customerinlog)
+                {
+                    Console.WriteLine("Användarnamn godkänt du skickas vidare till nästa menyval");
+                }
                 else
                 {
                     if (num < 3)
