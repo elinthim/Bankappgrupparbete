@@ -16,6 +16,7 @@ namespace Bankappgrupparbete
 
         List<string> userList = new List<string>();
         List<string> passList = new List<string>();
+        DateTime currentDateTime = DateTime.Now;
 
         public Bank(string username, string password)
         {
@@ -25,11 +26,17 @@ namespace Bankappgrupparbete
 
         public void Start()
         {
-            Console.WriteLine("Välj ett av altenativen");
-            Console.WriteLine("1. Logga in som Admin");
-            Console.WriteLine("2. Logga in som Privat kund ");
-            Console.WriteLine("3. ");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("|   Välj ett av altenativen     |");
+            Console.WriteLine("|  1. Logga in som Admin        |");
+            Console.WriteLine("|  2. Logga in som Privat kund  |");
+            Console.WriteLine("|  3. Logga ut                  |");
+            Console.WriteLine("|                               |");
+            Console.WriteLine(DateTime.Now.ToString("|   dddd, dd MMMM yyyy   |"));
+            Console.WriteLine("---------------------------------");
+            Console.Write("Val : ");
             int input = int.Parse(Console.ReadLine());
+            Console.Clear();
 
             switch (input)
             {
@@ -38,6 +45,11 @@ namespace Bankappgrupparbete
                     break;
                 case 2:
                     customerinlog();
+                    break;
+                case 3:
+                    Console.Clear();
+                    Console.WriteLine("Tack för idag");
+                    Console.ReadKey();
                     break;
                 default:
                     break;
@@ -50,6 +62,7 @@ namespace Bankappgrupparbete
             int num = 0;
             while (gameOver == false)
             {
+                
                 Console.Write("Användarnamn Admin : ");
                 string adminUser = Console.ReadLine().ToLower();
                 Console.Write("Password Admin : ");
@@ -87,7 +100,7 @@ namespace Bankappgrupparbete
                 Console.Write("Användarnamn privatperson : ");
                 string customerinlog = Console.ReadLine();
                 Console.Write("Password privatkund : ");
-                string adminPass = Console.ReadLine();
+                string customerPass = Console.ReadLine();
                 num++;
 
 
@@ -125,7 +138,7 @@ namespace Bankappgrupparbete
             Console.Clear();
             Console.WriteLine("Välkommen till inloggningen för Admin !!");
             Console.WriteLine("1. Lägga till användare");
-            Console.WriteLine("2 Användare ");
+            Console.WriteLine("2. Användare ");
             Console.WriteLine("3. Logga ut");
             int adminInput = int.Parse(Console.ReadLine());
             if (adminInput == 1) { addUser(); }
@@ -183,13 +196,14 @@ namespace Bankappgrupparbete
         }
         public void checkUser()
         {
+            Console.Clear();
             Console.WriteLine("Här kommer alla användare");
             foreach (var item in userList)
             {
                 Console.WriteLine(item);
             }
             Console.WriteLine("------------------");
-            Console.WriteLine(" Tryck Enter för att återvända till start");
+            Console.WriteLine("Tryck Enter för att återvända till start");
             Console.ReadKey();
             admin();
         }
