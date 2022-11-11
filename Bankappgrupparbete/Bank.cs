@@ -7,7 +7,7 @@ namespace Bankappgrupparbete
 {
     public class Bank
     {
-        string Username;
+        string Username;  ///// Test Test test test 
         string Password;
 
 
