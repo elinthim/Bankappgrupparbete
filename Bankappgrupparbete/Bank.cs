@@ -7,7 +7,7 @@ namespace Bankappgrupparbete
 {
     public class Bank
     {
-        string Username;  ///// Test Test test test 
+        string Username;
         string Password;
 
 
@@ -32,7 +32,7 @@ namespace Bankappgrupparbete
             Console.WriteLine("|  2. Logga in som Privat kund  |");
             Console.WriteLine("|  3. Logga ut                  |");
             Console.WriteLine("|                               |");
-            Console.WriteLine(DateTime.Now.ToString("|   dddd, dd MMMM yyyy   |"));
+            Console.WriteLine(DateTime.Now.ToString("|   dddd, dd MMMM yyyy    |"));
             Console.WriteLine("---------------------------------");
             Console.Write("Val : ");
             int input = int.Parse(Console.ReadLine());
@@ -62,7 +62,7 @@ namespace Bankappgrupparbete
             int num = 0;
             while (gameOver == false)
             {
-                
+
                 Console.Write("Användarnamn Admin : ");
                 string adminUser = Console.ReadLine().ToLower();
                 Console.Write("Password Admin : ");
@@ -105,33 +105,35 @@ namespace Bankappgrupparbete
 
 
                 var userfound = userList.Find(i => i.Equals(customerinlog));
+                var userfound1 = passList.Find(i => i.Equals(customerPass));
 
-                if (userfound == customerinlog)
+                if (userfound == customerinlog && userfound1 == customerPass)
                 {
                     Console.WriteLine("Användarnamn godkänt du skickas vidare till nästa menyval");
+                    gameOver = true;
+                }
+                else if (userfound != customerinlog && userfound1 != customerPass)
+                {
+                    Console.WriteLine("Fel inmatning, försök igen!");
+                    gameOver = false;
+                    Console.Clear();
+
+                }
+                if (num == 3)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Nu har du ett försök kvar!!");
                 }
                 else
                 {
-                    if (num < 3)
-                    {
-                        Console.WriteLine("Fel inmatning, försök igen!");
-                        gameOver = false;
-                        Console.Clear();
-                    }
-                    else if (num == 3)
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Nu har du ett försök kvar!!");
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Va fan, jag sa ju till dig!!. Nu loggas du ut!");
-                        break;
-                    }
+                    Console.Clear();
+                    Console.WriteLine("Va fan, jag sa ju till dig!!. Nu loggas du ut!");
+                    gameOver = true;
                 }
-            }
 
+
+            }
+            Start();
         }
         public void admin()
         {
